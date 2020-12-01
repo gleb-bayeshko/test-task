@@ -39,9 +39,11 @@ const babelOptions = (preset) => {
 
 const cssLoaders = (extraLoader) => {
   const loaders = [
+    !isDev ? 
     {
       loader: MiniCssExtractPlugin.loader,
-    },
+    }
+    : 'style-loader',
     'css-loader'
   ];
 
@@ -59,12 +61,17 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   devServer: {
     port: 5500,
     hot: isDev,
+    inline: true,
     open: 'Chrome'
   },
   optimization: optimization(),
+  devtool: isDev ? 'source-map' : '',
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Task',

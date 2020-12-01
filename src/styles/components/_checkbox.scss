@@ -1,0 +1,35 @@
+.checkbox {
+ appearance: none;
+ position: relative;
+
+ &:before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: -15px;
+  background-color: $color-primary-light-extra;
+  color: transparent;
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  @extend %border-radius;
+  @extend %transition;
+  @extend %cursor-pointer;
+ }
+
+ &:checked:before {
+  content: 'V';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-primary-light;
+  color: $color-light;
+ }
+}
+
+.checkbox__label {
+ font-size: 2rem;
+ color: $color-light;
+}

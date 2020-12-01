@@ -1,0 +1,105 @@
+.content {
+ width: 100vw;
+ height: 100vh;
+ padding: 10px 0;
+ background-color: $color-dark-semi;
+}
+
+.content__title {
+ position: relative;
+ text-align: center;
+ opacity: 0;
+
+ @include animation($name: appearFromLeft, $delay: 300ms);
+}
+
+.content__checkbox {
+ margin-left: 6px;
+}
+
+.content__label,
+.content__checkbox {
+ opacity: 0;
+ @include animation($name: appear, $delay: 900ms);
+}
+
+.content__input {
+ position: relative;
+ width: 100%;
+ margin: 5px 0 0;
+ opacity: 0;
+
+ @include animation($name: appearFromRight, $delay: 700ms);
+}
+
+.content__buttons-container {
+ display: flex;
+ justify-content: space-between;
+ margin: 2px 0 0;
+ width: 100%;
+}
+
+.content__button {
+ margin-top: 10px;
+ opacity: 0;
+ width: 160px;
+ text-transform: uppercase;
+
+ @include animation($name: appear, $delay: 1200ms);
+}
+
+.content__result-container {
+ width: 100%;
+ height: 400px;
+ margin: 12px 0 0;
+ overflow-y: auto;
+ background-color: $color-gray;
+ box-shadow: 2px 2px 5px $color-dark;
+ border: 2px solid $color-primary;
+ opacity: 0;
+
+ @extend %border-radius;
+ @include animation($name: appearResult, $delay: 1600ms);
+}
+
+@keyframes appearFromLeft {
+ 0% {
+  left: -50%;
+  opacity: 0;
+ }
+ 100% {
+  left: 0;
+  opacity: 1;
+ }
+}
+
+@keyframes appearFromRight {
+ 0% {
+  right: -50%;
+  opacity: 0;
+ }
+ 100% {
+  right: 0;
+  opacity: 1;
+ }
+}
+
+@keyframes appear {
+ 0% {
+  opacity: 0;
+ }
+ 100% {
+  opacity: 1;
+ }
+}
+
+@keyframes appearResult {
+ 0% {
+  height: 0;
+  opacity: 0;
+ }
+ 100% {
+  height: 400px;
+  opacity: 1;
+ }
+}

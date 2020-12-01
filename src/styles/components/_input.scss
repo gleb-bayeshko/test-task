@@ -1,0 +1,16 @@
+.input {
+ height: 45px;
+ padding: 5px 8px;
+ background-color: $color-primary-light-extra;
+ color: $color-primary;
+ font-size: 2.4rem;
+ border: 2.5px solid transparent;
+ box-shadow: 2px 2px 3px $color-dark;
+
+ @extend %transition;
+ @extend %border-radius;
+
+ &:focus {
+  border-color: $color-primary;
+ }
+}

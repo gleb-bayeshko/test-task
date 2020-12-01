@@ -1,0 +1,21 @@
+.button {
+ padding: 8px 6px;
+ background-color: $color-primary;
+ font-family: 'Open Sans', sans-serif;
+ font-size: 1.8rem;
+ font-weight: bold;
+ color: $color-light;
+ box-shadow: 2px 2px 5px $color-dark;
+
+ @extend %transition;
+ @extend %border-radius;
+ @extend %cursor-pointer;
+
+ &:hover {
+  background-color: $button-hover-background-color;
+ }
+
+ &:active {
+  background-color: $button-active-background-color;
+ }
+}

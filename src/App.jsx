@@ -1,8 +1,9 @@
 import React from "react";
-import './styles/style.scss';
+import "./styles/style.scss";
+import FormContainer from "./components/FormContainer";
 
 function App() {
-  return <div className="hello">HELLO!</div>;
+  return <FormContainer />;
 }
 
 export default App;
