@@ -10,7 +10,7 @@ const wordsList = (config) => async (dispatch) => {
      config
     } });
   } catch (error) {
-    dispatch({ type: WORDS_LIST_FAIL, payload: error.data });
+    dispatch({ type: WORDS_LIST_FAIL, payload: error.response.data });
   }
 };
 

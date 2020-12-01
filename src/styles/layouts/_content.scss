@@ -64,10 +64,20 @@ body {
  @include animation($name: appearResult, $delay: 1600ms);
 }
 
+.content__result-row {
+ display: flex;
+ justify-content: space-between;
+}
+
 .content__result-word {
  font-size: 2rem;
  color: $color-light;
  text-align: center;
+
+ &_length {
+  color: $color-primary-dark;
+  font-size: 1.8rem;
+ }
 }
 
 .content__error {

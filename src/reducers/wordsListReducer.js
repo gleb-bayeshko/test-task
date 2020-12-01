@@ -10,23 +10,28 @@ const wordsListReducer = (state = {words: []}, action) => {
    
    switch (searchType) {
     case SEARCH_TYPE_LENGTH:
-     dataFiltered = data.filter(word => word.length > value);
+     dataFiltered = data
+     .filter(word => word.length > value);
      break;
     case SEARCH_TYPE_SUBSTRING:
-     dataFiltered = data.filter(word => {
+     dataFiltered = data
+     .filter(word => {
       const { config: { sens } } = action.payload;
-      const regexp = new RegExp(value);
+    
+      const regexpValueSafetyCheck = /[\\'"]/g;
+      const safeValue = value.replace(regexpValueSafetyCheck, '');
+      const regexp = new RegExp(`${safeValue}`, `${sens ? '' : 'i'}`);
  
-      return regexp.test(`${word}`, `${sens ? '' : 'g'}`) ? true : false;
-     });
+      return regexp.test(word) ? true : false;
+     })
      break;
     default:
      dataFiltered = data;
    }
 
-   return { loading: false, words: dataFiltered };
+   return { loading: false, words: dataFiltered.sort((a, b) => a.length - b.length) };
   case WORDS_LIST_FAIL:
-   return { loading: false, error: action.payload };
+   return { loading: false, error: action.payload, words: [] };
   default: 
   return state;
  }

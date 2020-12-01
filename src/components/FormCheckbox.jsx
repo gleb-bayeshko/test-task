@@ -11,6 +11,7 @@ function FormCheckbox(props) {
         name="case-check"
         id="case-check"
         className="checkbox content__checkbox"
+        onChange={props.handleCheckbox}
       />
     </div>
   );

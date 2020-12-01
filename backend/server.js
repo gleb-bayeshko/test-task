@@ -21,7 +21,7 @@ app.get("/api/words", async (req, res) => {
     return res.status(200).send(response.data);
   } catch (error) {
    console.log(error);
-   return res.status(400).send('Error: Unable to send request or process response');
+   return res.status(400).send('Server error: Unable to send request or process response');
   }
 });
 
