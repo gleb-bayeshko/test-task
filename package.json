@@ -2,9 +2,9 @@
   "name": "test-task",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "backend/server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve --config webpack.config.js --mode development",
+    "start": "concurrently \"nodemon backend/server.js\" \"cross-env NODE_ENV=development webpack serve --config webpack.config.js --mode development\"",
     "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js --mode development",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production"
   },
@@ -37,9 +37,17 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6",
+    "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "sass-loader": "^10.1.0"
   }
 }

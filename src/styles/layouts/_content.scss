@@ -1,8 +1,9 @@
-.content {
- width: 100vw;
- height: 100vh;
- padding: 10px 0;
+body {
  background-color: $color-dark-semi;
+}
+
+.content {
+ padding: 10px 0;
 }
 
 .content__title {
@@ -52,6 +53,7 @@
  width: 100%;
  height: 400px;
  margin: 12px 0 0;
+ padding: 5px 15px;
  overflow-y: auto;
  background-color: $color-gray;
  box-shadow: 2px 2px 5px $color-dark;
@@ -60,6 +62,23 @@
 
  @extend %border-radius;
  @include animation($name: appearResult, $delay: 1600ms);
+}
+
+.content__result-word {
+ font-size: 2rem;
+ color: $color-light;
+ text-align: center;
+}
+
+.content__error {
+ display: flex;
+ justify-content: center;
+ width: 100%;
+ padding: 10px 8px;
+ background-color: $color-danger;
+ color: $color-light;
+ font-size: 1.7rem;
+ margin: 5px 0;
 }
 
 @keyframes appearFromLeft {
