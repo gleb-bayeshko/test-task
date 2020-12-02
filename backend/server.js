@@ -26,12 +26,14 @@ app.get("/api/words", async (req, res) => {
   }
 });
 
+app.use(express.static(path.join(__dirname, '/../dist')));
+
 app.get('/', (req, res) => {
   try {
-    res.sendFile(path.join(`${__dirname}/../dist/index.html`));
+    res.sendFile(path.join(__dirname, '/../dist/index.html'));
   } catch (error) {
     console.log(error);
-    console.log(error.message);
+    res.status(404).send('Cannot find index.html');
   }
 });
 
