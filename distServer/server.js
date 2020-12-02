@@ -14,6 +14,8 @@ var bodyParser = require("body-parser");
 
 var fetch = require("node-fetch");
 
+var path = require("path");
+
 var port = 4001;
 var app = express();
 app.use(bodyParser.json());
@@ -59,6 +61,9 @@ app.get("/api/words", /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }());
+app.get('*', function (req, res) {
+  res.sendFile(path.join("".concat(__dirname, "/../dist/index.html")));
+});
 app.listen(process.env.PORT || port, function () {
   console.log("Server started on ".concat(process.env.PORT || port, " port"));
 });

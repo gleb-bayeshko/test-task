@@ -78,7 +78,7 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Task',
-      template: './src/index.html',
+      template: './index.html',
       minify: {
         collapseWhitespace: !isDev
       }
