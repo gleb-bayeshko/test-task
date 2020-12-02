@@ -27,7 +27,12 @@ app.get("/api/words", async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/../dist/index.html`));
+  try {
+    res.sendFile(path.join(`${__dirname}/../dist/index.html`));
+  } catch (error) {
+    console.log(error);
+    console.log(error.message);
+  }
 });
 
 app.listen(process.env.PORT || port, () => {

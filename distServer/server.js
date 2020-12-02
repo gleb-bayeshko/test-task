@@ -61,8 +61,13 @@ app.get("/api/words", /*#__PURE__*/function () {
     return _ref.apply(this, arguments);
   };
 }());
-app.get('*', function (req, res) {
-  res.sendFile(path.join("".concat(__dirname, "/../dist/index.html")));
+app.get('/', function (req, res) {
+  try {
+    res.sendFile(path.join("".concat(__dirname, "/../dist/index.html")));
+  } catch (error) {
+    console.log(error);
+    console.log(error.message);
+  }
 });
 app.listen(process.env.PORT || port, function () {
   console.log("Server started on ".concat(process.env.PORT || port, " port"));

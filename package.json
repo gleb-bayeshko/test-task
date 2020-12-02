@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"nodemon backend/server.js\" \"cross-env NODE_ENV=development webpack serve --config webpack.config.js --mode development\"",
     "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js --mode development",
-    "build": "rm -rf distServer && npx babel backend -d distServer && cross-env NODE_ENV=production webpack --config webpack.config.js --mode production",
+    "build": "rm -rf distServer && npx babel backend -d distServer && rm -rf dist && cross-env NODE_ENV=production webpack --config webpack.config.js --mode production",
     "heroku-postbuild": "npm run build && npm install"
   },
   "repository": {
