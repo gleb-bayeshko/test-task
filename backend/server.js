@@ -26,7 +26,7 @@ app.get("/api/words", async (req, res) => {
   }
 });
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(`${__dirname}/../dist/index.html`));
 });
 
