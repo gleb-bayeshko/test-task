@@ -20,13 +20,13 @@ const wordsListReducer = (state = {words: []}, action) => {
     
       const regexpValueSafetyCheck = /[\\'"]/g;
       const safeValue = value.replace(regexpValueSafetyCheck, '');
-      const regexp = new RegExp(`${safeValue}`, `${sens ? '' : 'i'}`);
+      const regexpFilter = new RegExp(`${safeValue}`, `${sens ? '' : 'i'}`);
  
-      return regexp.test(word) ? true : false;
+      return regexpFilter.test(word) ? true : false;
      })
      break;
     default:
-     dataFiltered = data;
+     dataFiltered = [];
    }
 
    return { loading: false, words: dataFiltered.sort((a, b) => a.length - b.length) };

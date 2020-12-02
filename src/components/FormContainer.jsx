@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -8,6 +8,7 @@ import FormInput from "./FormInput";
 import FormButtons from "./FormButtons";
 import FormCheckbox from "./FormCheckbox";
 import FormResult from "./FormResult";
+
 import { SEARCH_TYPE_LENGTH, SEARCH_TYPE_SUBSTRING } from "../constants";
 
 function FormContainer() {

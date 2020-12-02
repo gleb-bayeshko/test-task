@@ -74,7 +74,7 @@ module.exports = {
     open: 'Chrome'
   },
   optimization: optimization(),
-  devtool: isDev ? 'source-map' : '',
+  devtool: isDev ? 'source-map' : false,
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Task',

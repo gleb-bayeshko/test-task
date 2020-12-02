@@ -1,0 +1,1 @@
+web: node distServer/server.js

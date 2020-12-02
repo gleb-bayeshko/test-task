@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { Router } = require("express");
 const fetch = require("node-fetch");
+import regeneratorRuntime from "regenerator-runtime";
 
 const port = 4001;
 

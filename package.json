@@ -6,7 +6,8 @@
   "scripts": {
     "start": "concurrently \"nodemon backend/server.js\" \"cross-env NODE_ENV=development webpack serve --config webpack.config.js --mode development\"",
     "dev": "cross-env NODE_ENV=development webpack --config webpack.config.js --mode development",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production"
+    "build": "rm -rf distServer && npx babel backend -d distServer && cross-env NODE_ENV=production webpack --config webpack.config.js --mode production",
+    "heroku-postbuild": "npm run build && npm install"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,9 @@
   },
   "homepage": "https://github.com/gleb-bayeshko/test-task#readme",
   "devDependencies": {
+    "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
     "babel-loader": "^8.2.2",
@@ -48,6 +51,7 @@
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "regenerator-runtime": "^0.13.7",
     "sass-loader": "^10.1.0"
   }
 }
