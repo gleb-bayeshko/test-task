@@ -25,6 +25,10 @@ app.get("/api/words", async (req, res) => {
   }
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/../dist/index.html`));
+});
+
 app.listen(process.env.PORT || port, () => {
   console.log(`Server started on ${process.env.PORT || port} port`);
 });
